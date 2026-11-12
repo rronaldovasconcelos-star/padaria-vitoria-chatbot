@@ -38,6 +38,8 @@ Trabalho da PUC: chatbot de encomendas de uma padaria que segue o processo **TO-
 - O serviço dorme após 15 min: abrir o link ~1 min antes da apresentação. Os pedidos zeram a cada reinício; use `BASE=https://padaria-vitoria.onrender.com npm run exemplos` para repovoar.
 - Fuso: `TZ=America/Sao_Paulo` (o servidor do Render roda em UTC).
 
+- No dia da apresentação: abrir `Manter site no ar.bat` e deixar aberto, depois rodar `Gerar pedido de demonstracao.bat` (pedido completo pelo TO-BE inteiro).
+
 ## Como retomar
 
 `npm install && npm start`, depois `npm test`. Use `npm run exemplos` para popular pedidos de exemplo com o servidor no ar.
