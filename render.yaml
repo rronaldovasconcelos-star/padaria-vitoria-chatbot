@@ -1,4 +1,5 @@
-# Hospedagem gratuita no Render (Blueprint). Cada push na main publica de novo.
+# Hospedagem gratuita no Render (Blueprint): https://padaria-vitoria.onrender.com
+# Repositório público -> sem deploy automático: após um push, clicar em "Manual Deploy" no Render.
 # Plano free: o serviço dorme após 15 min sem acesso (o primeiro acesso leva ~50 s)
 # e o disco é temporário (os pedidos zeram quando o serviço reinicia; o cardápio volta sozinho).
 services:
@@ -17,3 +18,5 @@ services:
         value: "24"
       - key: NODE_ENV
         value: production
+      - key: TZ
+        value: America/Sao_Paulo
