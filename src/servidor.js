@@ -59,7 +59,7 @@ export function criarApp({ arquivoBanco, pastaUploads = path.join(RAIZ, 'dados',
   };
 
   app.get('/api/eventos', (req, res) => {
-    res.set({ 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', Connection: 'keep-alive' });
+    res.set({ 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache, no-transform', Connection: 'keep-alive', 'X-Accel-Buffering': 'no' });
     res.flushHeaders();
     res.write('retry: 2000\n\n');
     ouvintes.add(res);
@@ -213,8 +213,9 @@ export function criarApp({ arquivoBanco, pastaUploads = path.join(RAIZ, 'dados',
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const porta = Number(process.env.PORT ?? 3000);
+  process.on('SIGTERM', () => process.exit(0));
   const { app } = criarApp();
-  app.listen(porta, () => {
+  app.listen(porta, '0.0.0.0', () => {
     console.log(`\n  🥖 Padaria Vitória rodando em http://localhost:${porta}\n`);
     console.log(`     Chat do cliente ....... http://localhost:${porta}/chat`);
     console.log(`     Painel interno ........ http://localhost:${porta}/painel`);

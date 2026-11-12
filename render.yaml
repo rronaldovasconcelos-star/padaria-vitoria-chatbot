@@ -1,0 +1,19 @@
+# Hospedagem gratuita no Render (Blueprint). Cada push na main publica de novo.
+# Plano free: o serviço dorme após 15 min sem acesso (o primeiro acesso leva ~50 s)
+# e o disco é temporário (os pedidos zeram quando o serviço reinicia; o cardápio volta sozinho).
+services:
+  - type: web
+    name: padaria-vitoria
+    runtime: node
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/meta
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: NODE_ENV
+        value: production
