@@ -10,7 +10,8 @@
     "dev": "node --disable-warning=ExperimentalWarning --watch src/servidor.js",
     "test": "node --disable-warning=ExperimentalWarning --test \"test/**/*.test.js\"",
     "exemplos": "node scripts/popular-exemplos.mjs",
-    "manter-no-ar": "node scripts/manter-no-ar.mjs"
+    "manter-no-ar": "node scripts/manter-no-ar.mjs",
+    "pedido-completo": "node scripts/pedido-completo.mjs"
   },
   "engines": {
     "node": ">=22.13"

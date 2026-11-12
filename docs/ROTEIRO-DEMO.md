@@ -4,6 +4,8 @@
 
 **Uns 30 minutos antes da aula:** dê dois cliques em **`Manter site no ar.bat`** (na pasta do projeto) e deixe a janela aberta até o fim da apresentação. Ela acorda o site e não deixa ele dormir; enquanto ela estiver aberta, os pedidos também não somem. Na janela deve aparecer "✅ site no ar".
 
+**Pedido de demonstração pronto:** com a janela acima aberta, dê dois cliques em **`Gerar pedido de demonstracao.bat`**. Ele cria um pedido que passa por TODAS as etapas do TO-BE e mostra no fim o link do diagrama (/processo). Útil se não der tempo de fazer o pedido ao vivo.
+
 Para apresentar pelo site, use os endereços /chat, /painel e /processo dele no lugar de localhost. Para apresentar no seu computador, siga os passos abaixo.
 
 
