@@ -28,7 +28,7 @@ async function iniciar() {
   botaoEnviar.disabled = false;
   texto.placeholder = 'Escreva ou escolha uma opção';
   ouvir(async (ev) => {
-    if (ev.tipo === 'mensagem' && ev.conversaId === conversaId) await buscar();
+    if (ev.tipo === 'mensagem' && ev.conversaId === conversaId) await buscar().catch(recomecarSeSumiu);
     if (ev.tipo === 'reinicio') { await novaConversa(); }
     if (ev.tipo === 'catalogo') catalogo = await api('GET', '/api/catalogo');
   });
@@ -48,7 +48,8 @@ async function novaConversa() {
 let buscando = Promise.resolve();
 function buscar() {
   // Serializa as buscas para não desenhar a mesma mensagem duas vezes.
-  buscando = buscando.then(async () => {
+  // Uma busca que falha NÃO pode travar as próximas: a fila sempre segue (catch antes do then).
+  const vez = buscando.catch(() => {}).then(async () => {
     const novas = await api('GET', `/api/conversas/${conversaId}/mensagens?depois=${ultimoId}`);
     if (!novas.length) return;
     $('.digitando')?.remove();
@@ -56,7 +57,22 @@ function buscar() {
     ultimoId = novas.at(-1).id;
     desenhar(novas);
   });
-  return buscando;
+  buscando = vez.catch(() => {});
+  return vez;
+}
+
+/** O servidor reiniciou e esqueceu a conversa (hospedagem grátis apaga os dados): começa outra. */
+async function recomecarSeSumiu(erro) {
+  if (!/Conversa não encontrada/i.test(erro?.message ?? '')) return false;
+  avisar('A conversa anterior expirou. Começamos uma nova.');
+  await novaConversa();
+  return true;
+}
+
+function mostrarFalhaAoIniciar() {
+  conversaEl.innerHTML = `<div class="msg bot"><div class="balao">Não consegui falar com a padaria agora. Se o site estava parado, ele pode levar até 1 minuto para acordar.</div>
+    <div class="opcoes"><button class="btn" type="button" id="tentarDeNovo">Tentar de novo</button></div></div>`;
+  $('#tentarDeNovo').addEventListener('click', () => location.reload());
 }
 
 // ------------------------------------------------------------------ desenho
@@ -184,7 +200,7 @@ async function enviar(entrada) {
     await buscar();
   } catch (e) {
     $('.digitando')?.remove();
-    avisar(e.message, 'erro');
+    if (!(await recomecarSeSumiu(e))) avisar(e.message, 'erro');
   }
 }
 
@@ -327,4 +343,4 @@ $('#enviarCarrinho').addEventListener('click', () => {
   enviar({ tipo: 'carrinho', itens });
 });
 
-iniciar().catch((e) => avisar(e.message, 'erro'));
+iniciar().catch(() => mostrarFalhaAoIniciar());
