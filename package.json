@@ -1,0 +1,22 @@
+{
+  "name": "padaria-vitoria-chatbot",
+  "version": "1.0.0",
+  "description": "Chatbot e painel de produção da Padaria Vitória, implementando o processo TO-BE (projeto acadêmico PUC).",
+  "type": "module",
+  "private": true,
+  "main": "src/servidor.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/servidor.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch src/servidor.js",
+    "test": "node --disable-warning=ExperimentalWarning --test \"test/**/*.test.js\"",
+    "exemplos": "node scripts/popular-exemplos.mjs"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "multer": "^2.0.2",
+    "qrcode": "^1.5.4"
+  }
+}

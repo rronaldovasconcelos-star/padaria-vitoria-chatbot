@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel da equipe · Padaria Vitória</title>
+  <link rel="icon" href="/img/icone.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/painel.css">
+</head>
+<body>
+  <header class="barra">
+    <a class="marca" href="/"><span class="marca-selo" aria-hidden="true"></span><span class="marca-nome">Padaria Vitória</span></a>
+    <nav class="perfis" id="perfis" aria-label="Quem está usando o painel">
+      <a href="#gestao" data-perfil="gestao">Gestão</a>
+      <a href="#paes" data-perfil="paes">Padeiro</a>
+      <a href="#confeitaria" data-perfil="confeitaria">Confeiteiro</a>
+      <a href="#salgados" data-perfil="salgados">Salgadeira</a>
+      <a href="#conferencia" data-perfil="conferencia">Conferência</a>
+    </nav>
+    <div class="barra-acoes">
+      <a class="btn btn-peq" href="/processo" target="_blank" rel="noopener">Ver processo</a>
+      <button class="btn btn-peq" type="button" id="reiniciar" title="Apaga os pedidos e recarrega o cardápio de exemplo">Reiniciar demonstração</button>
+    </div>
+  </header>
+
+  <main id="vista" class="vista"></main>
+
+  <dialog id="dialogo" class="dialogo">
+    <form method="dialog" class="dialogo-fechar"><button class="btn btn-peq" aria-label="Fechar">Fechar</button></form>
+    <div id="dialogoCorpo"></div>
+  </dialog>
+
+  <script type="module" src="/js/painel.js"></script>
+</body>
+</html>

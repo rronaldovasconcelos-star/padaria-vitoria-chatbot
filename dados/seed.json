@@ -1,0 +1,35 @@
+{
+  "produtos": [
+    { "nome": "Pão francês", "descricao": "Casquinha crocante, assado várias vezes ao dia.", "setor": "paes", "venda": "kg", "preco": 18.9, "peso_medio_kg": 0.05, "qtd_min": 10, "qtd_max": 3000, "icone": "🥖" },
+    { "nome": "Pão de leite", "descricao": "Macio e levemente adocicado.", "setor": "paes", "venda": "kg", "preco": 24.9, "peso_medio_kg": 0.06, "qtd_min": 6, "qtd_max": 1000, "icone": "🍞" },
+    { "nome": "Pão de forma caseiro", "descricao": "Fatiado na hora, 500 g.", "setor": "paes", "venda": "un", "preco": 13.5, "peso_medio_kg": 0.5, "qtd_min": 1, "qtd_max": 100, "icone": "🍞" },
+    { "nome": "Rosca de coco", "descricao": "Recheio cremoso de coco, 400 g.", "setor": "paes", "venda": "un", "preco": 17.9, "peso_medio_kg": 0.4, "qtd_min": 1, "qtd_max": 60, "icone": "🥯" },
+    { "nome": "Bolo de chocolate", "descricao": "Com cobertura de brigadeiro, cerca de 1,5 kg.", "setor": "confeitaria", "venda": "kg", "preco": 59.9, "peso_medio_kg": 1.5, "qtd_min": 1, "qtd_max": 30, "icone": "🎂" },
+    { "nome": "Bolo de cenoura", "descricao": "Com calda de chocolate, cerca de 1,2 kg.", "setor": "confeitaria", "venda": "kg", "preco": 49.9, "peso_medio_kg": 1.2, "qtd_min": 1, "qtd_max": 30, "icone": "🥕" },
+    { "nome": "Brigadeiro", "descricao": "Tradicional, enrolado na mão.", "setor": "confeitaria", "venda": "un", "preco": 2.2, "peso_medio_kg": 0.02, "qtd_min": 25, "qtd_max": 2000, "icone": "🍫" },
+    { "nome": "Sonho", "descricao": "Recheio de creme de baunilha.", "setor": "confeitaria", "venda": "un", "preco": 6.5, "peso_medio_kg": 0.09, "qtd_min": 1, "qtd_max": 300, "icone": "🍩" },
+    { "nome": "Panetone da casa", "descricao": "Frutas cristalizadas e gotas de chocolate, 750 g.", "setor": "confeitaria", "venda": "un", "preco": 42.9, "peso_medio_kg": 0.75, "qtd_min": 1, "qtd_max": 200, "icone": "🎄", "sazonal_inicio": "11-01", "sazonal_fim": "12-31" },
+    { "nome": "Ovo de Páscoa artesanal", "descricao": "Chocolate meio amargo, 350 g.", "setor": "confeitaria", "venda": "un", "preco": 54.9, "peso_medio_kg": 0.35, "qtd_min": 1, "qtd_max": 200, "icone": "🥚", "sazonal_inicio": "03-01", "sazonal_fim": "04-30" },
+    { "nome": "Bolo de milho junino", "descricao": "Cremoso, receita de festa junina.", "setor": "confeitaria", "venda": "kg", "preco": 44.9, "peso_medio_kg": 1.2, "qtd_min": 1, "qtd_max": 40, "icone": "🌽", "sazonal_inicio": "06-01", "sazonal_fim": "07-31" },
+    { "nome": "Mini coxinha", "descricao": "Frango com catupiry, para festas.", "setor": "salgados", "venda": "un", "preco": 1.1, "peso_medio_kg": 0.02, "qtd_min": 25, "qtd_max": 3000, "icone": "🍗" },
+    { "nome": "Empada de frango", "descricao": "Massa amanteigada.", "setor": "salgados", "venda": "un", "preco": 1.4, "peso_medio_kg": 0.025, "qtd_min": 25, "qtd_max": 3000, "icone": "🥧" },
+    { "nome": "Pão de queijo", "descricao": "Coquetel, assado na hora.", "setor": "salgados", "venda": "kg", "preco": 54.9, "peso_medio_kg": 0.025, "qtd_min": 20, "qtd_max": 3000, "icone": "🧀" },
+    { "nome": "Torta salgada de frango", "descricao": "Inteira, cerca de 1,5 kg.", "setor": "salgados", "venda": "kg", "preco": 52.9, "peso_medio_kg": 1.5, "qtd_min": 1, "qtd_max": 30, "icone": "🥘" }
+  ],
+  "sazonalidade": [
+    { "nome": "Natal", "inicio": "12-01", "fim": "12-31", "prazo_dias": 3 },
+    { "nome": "Páscoa", "inicio": "03-15", "fim": "04-20", "prazo_dias": 3 },
+    { "nome": "Festa Junina", "inicio": "06-01", "fim": "07-31", "prazo_dias": 2 }
+  ],
+  "clientes_pj": [
+    { "nome": "Colégio Monte Azul", "tipo": "escola", "cnpj": "11222333000181", "telefone": "31988880001" },
+    { "nome": "Construtora Horizonte", "tipo": "empresa", "cnpj": "11444777000161", "telefone": "31988880002" }
+  ],
+  "config": {
+    "prazo_validacao_min": 30,
+    "prazo_validacao_min_demo": 2,
+    "pix_chave": "pix@padariavitoria.exemplo",
+    "pix_nome": "Padaria Vitoria",
+    "pix_cidade": "Belo Horizonte"
+  }
+}

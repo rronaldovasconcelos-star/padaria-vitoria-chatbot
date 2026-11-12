@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Encomendas · Padaria Vitória</title>
+  <link rel="icon" href="/img/icone.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/chat.css">
+</head>
+<body class="azulejo">
+  <main class="aparelho" aria-label="Chat de encomendas da Padaria Vitória">
+    <header class="topo">
+      <a class="marca" href="/"><span class="marca-selo" aria-hidden="true"></span>
+        <span><span class="marca-nome">Padaria Vitória</span><span class="online">Vitória · assistente virtual</span></span></a>
+      <button class="btn-icone" id="nova" type="button" title="Começar uma nova conversa">Nova conversa</button>
+    </header>
+
+    <section class="conversa" id="conversa" aria-live="polite" aria-label="Mensagens"></section>
+
+    <form class="entrada" id="form">
+      <label class="visualmente-oculto" for="texto">Mensagem</label>
+      <input id="texto" type="text" autocomplete="off" placeholder="Escolha uma opção acima" disabled>
+      <button class="btn btn-cheio enviar" type="submit" disabled>Enviar</button>
+    </form>
+
+    <aside class="catalogo" id="catalogo" aria-label="Catálogo" hidden>
+      <header class="catalogo-topo">
+        <h2>Catálogo</h2>
+        <button class="btn btn-peq" type="button" id="fecharCatalogo">Fechar</button>
+      </header>
+      <nav class="abas" id="abas" aria-label="Setores"></nav>
+      <div class="produtos" id="produtos"></div>
+      <footer class="carrinho">
+        <div><span id="carrinhoQtd">Nenhum item</span><strong id="carrinhoTotal"></strong></div>
+        <button class="btn btn-cheio" type="button" id="enviarCarrinho" disabled>Usar estes itens</button>
+      </footer>
+    </aside>
+  </main>
+  <script type="module" src="/js/chat.js"></script>
+</body>
+</html>

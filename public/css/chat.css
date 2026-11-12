@@ -1,0 +1,139 @@
+body { min-height: 100dvh; display: grid; place-items: center; padding: 24px 16px; }
+
+.aparelho {
+  position: relative; width: 100%; max-width: 460px; height: min(860px, calc(100dvh - 48px));
+  display: grid; grid-template-rows: auto 1fr auto;
+  background: var(--papel); border-radius: 28px; overflow: hidden;
+  box-shadow: 0 0 0 8px var(--branco), 0 30px 60px -20px rgba(23, 44, 99, .55);
+}
+
+.topo {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 14px 16px; background: var(--anil); color: var(--branco);
+}
+.topo .marca-selo { box-shadow: none; }
+.online { display: block; font-size: .8rem; opacity: .85; }
+.online::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 5px; border-radius: 50%; background: #7ee2a8; vertical-align: 1px; }
+.btn-icone {
+  border: 1.5px solid rgba(255, 255, 255, .5); background: transparent; color: var(--branco);
+  border-radius: 999px; padding: .3em .8em; font-size: .85rem; cursor: pointer;
+}
+.btn-icone:hover { background: rgba(255, 255, 255, .12); }
+
+/* Mensagens */
+.conversa { overflow-y: auto; padding: 18px 14px 8px; display: flex; flex-direction: column; gap: 10px; }
+.msg { max-width: 86%; display: grid; gap: 8px; }
+.msg.bot { align-self: flex-start; }
+.msg.cliente { align-self: flex-end; justify-items: end; }
+.balao {
+  padding: .6em .85em; border-radius: 16px; white-space: pre-line; overflow-wrap: anywhere;
+  box-shadow: 0 1px 0 rgba(23, 44, 99, .08);
+}
+.bot .balao { background: var(--branco); border: 1px solid var(--linha); border-top-left-radius: 4px; }
+.cliente .balao { background: var(--anil); color: var(--branco); border-top-right-radius: 4px; }
+.hora { font-size: .7rem; color: var(--cinza); padding: 0 4px; }
+.msg.nova { animation: entra .22s ease-out; }
+
+.opcoes { display: flex; flex-wrap: wrap; gap: 6px; }
+.opcoes .btn { min-height: 36px; font-size: .92rem; }
+.opcoes .btn[disabled] { opacity: .35; }
+
+.digitando { align-self: flex-start; display: flex; gap: 4px; padding: .8em 1em; background: var(--branco); border: 1px solid var(--linha); border-radius: 16px; }
+.digitando i { width: 7px; height: 7px; border-radius: 50%; background: var(--cinza); animation: pula 1s infinite; }
+.digitando i:nth-child(2) { animation-delay: .15s; }
+.digitando i:nth-child(3) { animation-delay: .3s; }
+@keyframes pula { 0%, 60%, 100% { transform: none; opacity: .5; } 30% { transform: translateY(-4px); opacity: 1; } }
+
+/* Resumo do pedido: uma comanda de papel */
+.comanda {
+  background: var(--branco); border: 1px solid var(--linha); border-radius: var(--r-med);
+  padding: 14px 16px; display: grid; gap: 10px; position: relative;
+}
+.comanda::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 6px;
+  background: radial-gradient(circle at 6px 0, transparent 5px, var(--branco) 5.5px) -6px 0 / 12px 6px repeat-x;
+}
+.comanda h3 { font-size: 1.05rem; }
+.comanda dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; font-size: .9rem; }
+.comanda dt { color: var(--cinza); }
+.comanda dd { margin: 0; }
+.comanda ul { list-style: none; margin: 0; padding: 8px 0; border-block: 1px dashed var(--linha); display: grid; gap: 4px; }
+.comanda li { display: flex; justify-content: space-between; gap: 8px; }
+.totais { display: grid; gap: 2px; }
+.totais div { display: flex; justify-content: space-between; }
+.totais .sinal { font-weight: 700; color: var(--anil); }
+.obs { font-size: .8rem; color: var(--cinza); }
+
+/* PIX */
+.pix { background: var(--branco); border: 1px solid var(--linha); border-radius: var(--r-med); padding: 14px; display: grid; gap: 10px; justify-items: center; text-align: center; }
+.pix img { width: 180px; height: 180px; border-radius: 8px; border: 1px solid var(--linha); }
+.pix .valor { font-family: var(--fonte-letreiro); font-size: 1.6rem; color: var(--anil-escuro); }
+.copia { width: 100%; display: flex; gap: 6px; }
+.copia input { flex: 1; min-width: 0; font-size: .75rem; }
+.prazo { font-size: .85rem; color: var(--aviso); font-weight: 700; }
+.prazo.vencido { color: var(--erro); }
+.envio { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.envio input[type=file] { display: none; }
+.cliente img.anexo { width: 140px; border-radius: 12px; border: 3px solid var(--anil); background: var(--branco); }
+
+/* Acompanhamento */
+.trilha { list-style: none; margin: 0; padding: 12px 14px; background: var(--branco); border: 1px solid var(--linha); border-radius: var(--r-med); display: grid; gap: 6px; }
+.trilha li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; align-items: center; color: var(--cinza); font-size: .92rem; }
+.trilha li::before { content: ''; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--linha); justify-self: center; }
+.trilha li.feito { color: var(--tinta); }
+.trilha li.feito::before { background: var(--ok); border-color: var(--ok); }
+.trilha li.atual { color: var(--anil-escuro); font-weight: 700; }
+.trilha li.atual::before { background: var(--casca); border-color: var(--casca); box-shadow: 0 0 0 4px var(--casca-clara); }
+.trilha .setores { grid-column: 2; display: flex; flex-wrap: wrap; gap: 4px; font-weight: 400; }
+
+/* Entrada de texto */
+.entrada { display: flex; gap: 8px; padding: 10px 12px; border-top: 1px solid var(--linha); background: var(--branco); }
+.entrada input { flex: 1; min-width: 0; border-radius: 999px; }
+.entrada input:disabled { background: var(--papel); }
+
+/* Catálogo (gaveta) */
+.catalogo {
+  position: absolute; inset: 0; z-index: 5; display: grid; grid-template-rows: auto auto 1fr auto;
+  background: var(--papel); animation: sobe .25s ease-out;
+}
+.catalogo[hidden] { display: none; }
+@keyframes sobe { from { transform: translateY(30px); opacity: 0; } to { transform: none; opacity: 1; } }
+.catalogo-topo { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; }
+.catalogo-topo h2 { font-size: 1.5rem; color: var(--anil-escuro); }
+.abas { display: flex; gap: 6px; padding: 0 16px 10px; overflow-x: auto; }
+.abas button {
+  border: 0; border-bottom: 3px solid transparent; background: none; padding: .4em .2em; margin-right: .6em;
+  color: var(--cinza); font-weight: 700; cursor: pointer; white-space: nowrap;
+}
+.abas button[aria-selected=true] { color: var(--anil); border-color: var(--casca); }
+.produtos { overflow-y: auto; padding: 0 16px 16px; display: grid; gap: 10px; align-content: start; }
+.produto {
+  display: grid; grid-template-columns: 52px 1fr; gap: 4px 12px; align-items: start;
+  padding: 12px; background: var(--branco); border: 1px solid var(--linha); border-radius: var(--r-med);
+}
+.produto.escolhido { border-color: var(--anil); box-shadow: inset 4px 0 0 var(--casca); }
+.produto .icone {
+  grid-row: span 3; width: 52px; height: 52px; display: grid; place-items: center; font-size: 1.7rem;
+  background: var(--azulejo); border-radius: 50%;
+}
+.produto h3 { font-family: var(--fonte); font-weight: 700; font-size: 1rem; }
+.produto .desc { font-size: .85rem; color: var(--cinza); }
+.produto .preco { font-size: .9rem; }
+.produto .preco small { color: var(--cinza); }
+.produto .epoca { display: inline-block; margin-top: 2px; font-size: .78rem; color: var(--aviso); background: var(--aviso-claro); padding: 0 .5em; border-radius: 999px; }
+.qtd { grid-column: 2; display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+.qtd button { width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid var(--anil); background: var(--branco); color: var(--anil); font-weight: 700; font-size: 1.1rem; cursor: pointer; }
+.qtd input { width: 72px; text-align: center; min-height: 34px; }
+.qtd small { color: var(--cinza); font-size: .78rem; }
+.carrinho {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 12px 16px; background: var(--branco); border-top: 1px solid var(--linha);
+}
+.carrinho div { display: grid; font-size: .85rem; color: var(--cinza); }
+.carrinho strong { font-size: 1.1rem; color: var(--tinta); }
+
+@media (max-width: 520px) {
+  body { padding: 0; display: block; }
+  .aparelho { height: 100dvh; max-width: none; border-radius: 0; box-shadow: none; }
+}
+.inativo { pointer-events: none; opacity: .35; }

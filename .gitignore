@@ -1,0 +1,63 @@
+# ===== Segredos: a primeira camada de defesa (ausencia > proibicao) =====
+# Regra do portfolio: o repositorio guarda o CAMINHO do segredo, nunca o valor.
+.env
+.env.*
+!.env.example
+*.local
+*.local.*
+.secrets/
+secrets.json
+secrets.local.*
+SECRETS.local.md
+*.pem
+*.pfx
+*.p12
+*.key
+!*.public.key
+id_rsa*
+.credentials.json
+.htpasswd
+*.env.deploy
+
+# ===== Dependencias e build =====
+node_modules/
+.pnp.*
+dist/
+build/
+out/
+.next/
+.turbo/
+coverage/
+*.tsbuildinfo
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# ===== Banco local =====
+*.sqlite
+*.sqlite3
+*.db
+prisma/dev.db*
+
+# ===== Sistema e editor =====
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/*
+!.vscode/settings.json.example
+
+# ===== Ruido de execucao =====
+*.log
+logs/
+tmp/
+.tmp/
+_tmp/
+
+# ===== Projeto =====
+dados/uploads/
+dados/*.db-*

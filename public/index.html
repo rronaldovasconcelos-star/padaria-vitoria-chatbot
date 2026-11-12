@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Padaria Vitória</title>
+  <link rel="icon" href="/img/icone.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/base.css">
+  <style>
+    body { min-height: 100dvh; display: grid; grid-template-columns: minmax(260px, 42%) 1fr; }
+    .faixa { display: grid; align-content: end; padding: 40px; color: var(--branco); }
+    .letreiro { background: var(--anil); padding: 28px 30px 30px; border-radius: var(--r-gde); box-shadow: 0 0 0 6px var(--branco); max-width: 440px; }
+    .letreiro h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
+    .letreiro p { margin-top: 10px; opacity: .9; max-width: 34ch; }
+    main { display: grid; align-content: center; gap: 28px; padding: 48px clamp(20px, 6vw, 80px); }
+    main > p { color: var(--cinza); max-width: 56ch; }
+    .entradas { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; max-width: 560px; }
+    .entradas a {
+      display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; align-items: center;
+      padding: 18px 22px; background: var(--branco); border: 1.5px solid var(--linha); border-radius: var(--r-med);
+      color: var(--tinta); text-decoration: none;
+    }
+    .entradas a:hover { border-color: var(--anil); box-shadow: inset 5px 0 0 var(--casca); }
+    .entradas strong { font-family: var(--fonte-letreiro); font-weight: 400; font-size: 1.4rem; color: var(--anil-escuro); }
+    .entradas span { grid-column: 1; color: var(--cinza); font-size: .95rem; }
+    .entradas em { grid-row: 1 / span 2; grid-column: 2; font-style: normal; font-weight: 700; color: var(--anil); }
+    .rodape { color: var(--cinza); font-size: .85rem; }
+    @media (max-width: 760px) { body { grid-template-columns: 1fr; } .faixa { min-height: 220px; padding: 24px 16px; } main { padding: 32px 16px; } }
+  </style>
+</head>
+<body>
+  <section class="faixa azulejo">
+    <div class="letreiro">
+      <h1>Padaria Vitória</h1>
+      <p>Encomendas de pães, bolos, doces e salgados pelo chat, do pedido até a entrega.</p>
+    </div>
+  </section>
+  <main>
+    <p>Este sistema implementa o processo TO-BE de produção dos pedidos. Abra o chat e o painel em janelas lado a lado para acompanhar um pedido passando por todas as etapas.</p>
+    <ul class="entradas">
+      <li><a href="/chat" target="_blank" rel="noopener"><strong>Chat do cliente</strong><span>Fazer uma encomenda pelo catálogo, pagar o sinal e acompanhar o pedido.</span><em>Abrir</em></a></li>
+      <li><a href="/painel#gestao" target="_blank" rel="noopener"><strong>Painel da equipe</strong><span>Gestão, padeiro, confeiteiro, salgadeira e conferência.</span><em>Abrir</em></a></li>
+      <li><a href="/processo" target="_blank" rel="noopener"><strong>Processo no diagrama</strong><span>O diagrama TO-BE com os passos de cada pedido destacados.</span><em>Abrir</em></a></li>
+    </ul>
+    <p class="rodape">Projeto acadêmico da PUC. Os dados e os pagamentos são simulados.</p>
+  </main>
+</body>
+</html>

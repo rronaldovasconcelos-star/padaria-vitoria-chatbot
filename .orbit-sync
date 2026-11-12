@@ -1,0 +1,4 @@
+# A presenca deste arquivo autoriza o hook do Claude Code a comitar e
+# enviar este repositorio ao fim de cada sessao. Apague para desligar.
+nome=padaria-vitoria-chatbot
+slug=padaria-vitoria-chatbot

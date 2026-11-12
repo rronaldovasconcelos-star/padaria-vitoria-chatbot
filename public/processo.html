@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Processo TO-BE · Padaria Vitória</title>
+  <link rel="icon" href="/img/icone.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/base.css">
+  <style>
+    body { background: #f3f5fa; }
+    .barra { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 10px 24px; background: var(--branco); border-bottom: 1px solid var(--linha); }
+    .barra label { display: flex; align-items: center; gap: 8px; margin-left: auto; font-weight: 700; color: var(--cinza); }
+    .barra select { min-width: 260px; }
+    .palco { display: grid; grid-template-columns: 1fr 340px; gap: 0; height: calc(100dvh - 61px); }
+    .diagrama { overflow: auto; padding: 16px; }
+    .quadro { position: relative; width: max(100%, 1500px); background: var(--branco); border-radius: var(--r-med); box-shadow: var(--sombra); }
+    .quadro img { display: block; width: 100%; height: auto; }
+    .quadro svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .feito { fill: rgba(46, 125, 79, .16); stroke: var(--ok); stroke-width: 3; }
+    .atual { fill: rgba(185, 119, 31, .22); stroke: var(--casca); stroke-width: 5; animation: pulsa 1.4s ease-in-out infinite; }
+    @keyframes pulsa { 50% { stroke-width: 9; } }
+    .lateral { background: var(--branco); border-left: 1px solid var(--linha); overflow-y: auto; padding: 20px; }
+    .lateral h1 { font-size: 1.5rem; color: var(--anil-escuro); }
+    .lateral .sub { color: var(--cinza); font-size: .9rem; margin: 4px 0 16px; }
+    .legenda { display: flex; gap: 14px; font-size: .85rem; color: var(--cinza); margin-bottom: 14px; }
+    .legenda i { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: -2px; margin-right: 4px; }
+    .passos { list-style: none; margin: 0; padding: 0 0 0 14px; border-left: 2px solid var(--azulejo); display: grid; gap: 10px; font-size: .9rem; }
+    .passos li { position: relative; cursor: pointer; }
+    .passos li::before { content: ''; position: absolute; left: -20px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--ok); }
+    .passos li:first-child::before { background: var(--casca); box-shadow: 0 0 0 4px var(--casca-clara); }
+    .passos .raia { color: var(--cinza); font-size: .78rem; }
+    .vazio { color: var(--cinza); padding: 16px; border: 2px dashed var(--linha); border-radius: var(--r-med); }
+    @media (max-width: 900px) { .palco { grid-template-columns: 1fr; height: auto; } .lateral { border-left: 0; } .barra label { margin-left: 0; } .barra select { min-width: 0; width: 100%; } }
+    @media (prefers-reduced-motion: reduce) { .atual { animation: none; } }
+  </style>
+</head>
+<body>
+  <header class="barra">
+    <a class="marca" href="/"><span class="marca-selo" aria-hidden="true"></span><span class="marca-nome">Padaria Vitória</span></a>
+    <label>Pedido <select id="pedido"><option value="">Escolha um pedido</option></select></label>
+  </header>
+  <div class="palco">
+    <section class="diagrama" aria-label="Diagrama TO-BE">
+      <div class="quadro">
+        <img src="/diagrama/to-be.png" alt="Diagrama BPMN do processo de produção dos pedidos (TO-BE) da Padaria Vitória, com as raias Cliente, Sistema, Gestão, Produção e Conferência/Expedição">
+        <svg id="marcas" viewBox="0 0 2576 941" preserveAspectRatio="none" aria-hidden="true"></svg>
+      </div>
+    </section>
+    <aside class="lateral">
+      <h1 id="tituloPedido">Processo TO-BE</h1>
+      <p class="sub" id="subPedido">Escolha um pedido para ver, no diagrama, por onde ele já passou.</p>
+      <div class="legenda"><span><i style="background:rgba(46,125,79,.3);border:2px solid var(--ok)"></i>Já executado</span><span><i style="background:rgba(185,119,31,.3);border:2px solid var(--casca)"></i>Passo atual</span></div>
+      <ol class="passos" id="passos"></ol>
+    </aside>
+  </div>
+  <script type="module">
+    import { api, ouvir, hora, html, raw, carregarMeta } from '/js/comum.js';
+    const meta = await carregarMeta();
+    const sel = document.querySelector('#pedido');
+    const svg = document.querySelector('#marcas');
+    const porId = Object.fromEntries(meta.atividades.map((a) => [a.id, a]));
+    let atual = new URLSearchParams(location.search).get('pedido') ?? '';
+
+    function forma(a, classe) {
+      if (a.forma === 'tarefa') return `<rect class="${classe}" x="${a.x - 54}" y="${a.y - 25}" width="108" height="50" rx="8"/>`;
+      if (a.forma === 'gateway') return `<polygon class="${classe}" points="${a.x},${a.y - 22} ${a.x + 22},${a.y} ${a.x},${a.y + 22} ${a.x - 22},${a.y}"/>`;
+      return `<circle class="${classe}" cx="${a.x}" cy="${a.y}" r="15"/>`;
+    }
+
+    async function listar() {
+      const pedidos = await api('GET', '/api/pedidos');
+      sel.innerHTML = '<option value="">Escolha um pedido</option>' + pedidos.map((p) =>
+        html`<option value="${p.id}">${p.codigo} · ${p.cliente_nome} · ${meta.status[p.status]}</option>`).join('');
+      if (!atual && pedidos.length) atual = String(pedidos[0].id);
+      sel.value = atual;
+    }
+
+    async function mostrar() {
+      if (!atual) { svg.innerHTML = ''; document.querySelector('#passos').innerHTML = ''; return; }
+      const p = await api('GET', `/api/pedidos/${atual}`);
+      document.querySelector('#tituloPedido').textContent = p.codigo;
+      document.querySelector('#subPedido').textContent = `${p.cliente_nome} · ${meta.tipos[p.tipo]} · ${meta.status[p.status]}`;
+      const ids = p.eventos.map((e) => e.atividade);
+      const ultimo = ids.at(-1);
+      svg.innerHTML = [...new Set(ids)].map((id) => forma(porId[id], id === ultimo ? 'atual' : 'feito')).join('');
+      document.querySelector('#passos').innerHTML = [...p.eventos].reverse().map((e) => html`<li data-atividade="${e.atividade}"><b>${porId[e.atividade]?.nome}</b><br><span class="raia">${e.raia} · ${hora(e.em)}</span>${raw(e.detalhe ? html`<br>${e.detalhe}` : '')}</li>`).join('')
+        || '<li class="vazio">Sem passos registrados.</li>';
+      const alvo = svg.querySelector('.atual');
+      if (alvo) {
+        const quadro = document.querySelector('.quadro');
+        const a = porId[ultimo];
+        const diag = document.querySelector('.diagrama');
+        diag.scrollTo({ left: (a.x / 2576) * quadro.clientWidth - diag.clientWidth / 2, top: (a.y / 941) * quadro.clientHeight - diag.clientHeight / 2, behavior: 'smooth' });
+      }
+    }
+
+    sel.addEventListener('change', () => { atual = sel.value; history.replaceState(null, '', atual ? `?pedido=${atual}` : location.pathname); mostrar(); });
+    await listar();
+    await mostrar();
+    let t;
+    ouvir((ev) => { if (ev.tipo === 'pedido' || ev.tipo === 'reinicio') { clearTimeout(t); t = setTimeout(async () => { if (ev.tipo === 'reinicio') atual = ''; await listar(); await mostrar(); }, 200); } });
+  </script>
+</body>
+</html>

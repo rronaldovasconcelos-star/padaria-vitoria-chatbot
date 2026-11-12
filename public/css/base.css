@@ -1,0 +1,113 @@
+@import url('../fonts/fontes.css');
+
+/* Padaria Vitória — azulejo anil de padaria de bairro + casca de pão.
+   O azulejo é o único elemento "ousado"; o resto é quieto e legível. */
+:root {
+  --anil: #22408c;
+  --anil-escuro: #172c63;
+  --azulejo: #e4eaf6;
+  --casca: #b9771f;
+  --casca-clara: #f6e7cc;
+  --papel: #fafaf7;
+  --branco: #ffffff;
+  --tinta: #1b2233;
+  --cinza: #5b6478;
+  --linha: #d8dce6;
+  --ok: #2e7d4f;
+  --ok-claro: #e3f2e8;
+  --erro: #b3261e;
+  --erro-claro: #fbe6e4;
+  --aviso: #8f5200;
+  --aviso-claro: #fdf0d9;
+
+  --fonte-letreiro: 'Young Serif', Georgia, serif;
+  --fonte: 'Atkinson Hyperlegible', 'Segoe UI', system-ui, sans-serif;
+
+  --r-peq: 6px;
+  --r-med: 12px;
+  --r-gde: 20px;
+  --sombra: 0 1px 0 rgba(23, 44, 99, .08), 0 6px 18px -10px rgba(23, 44, 99, .35);
+
+  /* Ladrilho 56×56: flor de quatro pétalas e cantos em quarto de círculo */
+  --azulejo-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Crect width='56' height='56' fill='%23ffffff'/%3E%3Cg fill='%2322408c'%3E%3Cpath d='M0 0h10a10 10 0 0 1-10 10z'/%3E%3Cpath d='M56 0v10a10 10 0 0 1-10-10z'/%3E%3Cpath d='M0 56v-10a10 10 0 0 1 10 10z'/%3E%3Cpath d='M56 56h-10a10 10 0 0 1 10-10z'/%3E%3Cpath d='M28 12c4 6 4 10 0 16c-4-6-4-10 0-16z'/%3E%3Cpath d='M28 44c4-6 4-10 0-16c-4 6-4 10 0 16z'/%3E%3Cpath d='M12 28c6-4 10-4 16 0c-6 4-10 4-16 0z'/%3E%3Cpath d='M44 28c-6-4-10-4-16 0c6 4 10 4 16 0z'/%3E%3C/g%3E%3Ccircle cx='28' cy='28' r='3' fill='%23b9771f'/%3E%3Cpath d='M0 28h6M50 28h6M28 0v6M28 50v6' stroke='%2322408c' stroke-width='1.5'/%3E%3C/svg%3E");
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--fonte);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--tinta);
+  background: var(--papel);
+}
+h1, h2, h3 { font-family: var(--fonte-letreiro); font-weight: 400; line-height: 1.15; margin: 0; }
+p { margin: 0; }
+img { max-width: 100%; }
+a { color: var(--anil); }
+button, input, select, textarea { font: inherit; color: inherit; }
+
+:focus-visible { outline: 3px solid var(--casca); outline-offset: 2px; }
+
+.azulejo { background: var(--azulejo-svg) var(--anil); background-size: 56px 56px; }
+
+/* Botões */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .4em;
+  min-height: 40px; padding: .5em 1em;
+  border: 1.5px solid var(--anil); border-radius: 999px;
+  background: var(--branco); color: var(--anil);
+  font-weight: 700; cursor: pointer; text-decoration: none;
+  transition: background .15s, color .15s, transform .1s;
+}
+.btn:hover { background: var(--azulejo); }
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btn-cheio { background: var(--anil); color: var(--branco); }
+.btn-cheio:hover { background: var(--anil-escuro); }
+.btn-ok { border-color: var(--ok); background: var(--ok); color: var(--branco); }
+.btn-ok:hover { background: #24653f; }
+.btn-erro { border-color: var(--erro); color: var(--erro); }
+.btn-erro:hover { background: var(--erro-claro); }
+.btn-peq { min-height: 32px; padding: .25em .8em; font-size: .9rem; }
+
+input[type=text], input[type=tel], input[type=number], input[type=date], select {
+  min-height: 40px; padding: .4em .75em;
+  border: 1.5px solid var(--linha); border-radius: var(--r-peq); background: var(--branco);
+}
+input:focus { border-color: var(--anil); outline: none; box-shadow: 0 0 0 3px rgba(34, 64, 140, .18); }
+
+/* Selo de status */
+.selo {
+  display: inline-block; padding: .1em .65em; border-radius: 999px;
+  font-size: .8rem; font-weight: 700; white-space: nowrap;
+  background: var(--azulejo); color: var(--anil-escuro);
+}
+.selo[data-s=AGUARDANDO_SINAL], .selo[data-s=AGUARDANDO_CONFIRMACAO], .selo[data-s=AGUARDANDO_SALDO] { background: var(--aviso-claro); color: var(--aviso); }
+.selo[data-s=EM_PRODUCAO], .selo[data-s=LIBERADO], .selo[data-s=CONFERENCIA] { background: var(--casca-clara); color: #6d4410; }
+.selo[data-s=PRONTO_ENTREGA], .selo[data-s=ENTREGUE], .selo[data-s=FECHADO] { background: var(--ok-claro); color: var(--ok); }
+.selo[data-s=BLOQUEADO], .selo[data-s=CANCELADO] { background: var(--erro-claro); color: var(--erro); }
+
+/* Aviso flutuante */
+.avisos { position: fixed; right: 16px; bottom: 16px; display: grid; gap: 8px; z-index: 50; max-width: min(360px, calc(100vw - 32px)); }
+.aviso {
+  padding: .7em 1em; border-radius: var(--r-med); background: var(--anil-escuro); color: var(--branco);
+  box-shadow: var(--sombra); font-size: .95rem; animation: entra .25s ease-out;
+}
+.aviso.erro { background: var(--erro); }
+@keyframes entra { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.marca { display: inline-flex; align-items: center; gap: .55rem; color: inherit; text-decoration: none; }
+.marca-selo {
+  width: 36px; height: 36px; border-radius: 50%; flex: none;
+  background: var(--azulejo-svg); background-size: 40px; border: 2px solid var(--branco);
+  box-shadow: 0 0 0 1.5px var(--anil);
+}
+.marca-nome { font-family: var(--fonte-letreiro); font-size: 1.25rem; }
+
+.visualmente-oculto { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
