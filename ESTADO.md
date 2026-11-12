@@ -8,7 +8,7 @@ Trabalho da PUC: chatbot de encomendas de uma padaria que segue o processo **TO-
 
 ## Situação
 
-**Pronto para apresentar.**
+**Pronto para apresentar e NO AR: https://padaria-vitoria.onrender.com** (Render grátis, desde 12/11/2026).
 
 - Chat web (`/chat`) por botões, com catálogo, PIX do sinal e do saldo (QR BR Code offline) e acompanhamento.
 - Painel (`/painel`) com Gestão (comprovantes com prazo, quadro, relatórios com CSV/PDF, fechamento do dia, cadastros), Padeiro, Confeiteiro, Salgadeira e Conferência (checklist, item pendente, pesagem, liberação).
@@ -30,6 +30,13 @@ Trabalho da PUC: chatbot de encomendas de uma padaria que segue o processo **TO-
 
 - O Ronaldo precisa conferir a proposta e o roteiro e ensaiar a demonstração.
 - Opcional: login por perfil no painel; conferência lembrar os itens já marcados quando um pendente volta.
+
+## Hospedagem
+
+- Render (plano free), Blueprint `padaria-vitoria` (`render.yaml`), serviço `srv-dbr2kj8n74is73d5g9bg`. O login do Render é a conta Google do Ronaldo; o GitHub ligado a esse Render é a OUTRA conta (`franciscoronaldodev`), por isso o repositório ficou **público** (não tem segredo).
+- O push na main publicou sozinho no teste de 12/11. Se não publicar, clicar em "Manual Deploy" no painel do Render.
+- O serviço dorme após 15 min: abrir o link ~1 min antes da apresentação. Os pedidos zeram a cada reinício; use `BASE=https://padaria-vitoria.onrender.com npm run exemplos` para repovoar.
+- Fuso: `TZ=America/Sao_Paulo` (o servidor do Render roda em UTC).
 
 ## Como retomar
 

@@ -8,6 +8,8 @@ Chatbot de encomendas e painel de produção da Padaria Vitória. O sistema impl
 
 Tem custo zero e roda offline, sem conta, chave ou internet.
 
+**No ar:** https://padaria-vitoria.onrender.com (Render grátis. Dorme após 15 min sem uso; o primeiro acesso leva ~50 s.)
+
 ## Como rodar
 
 Requer **Node.js 22.13 ou mais novo**.
