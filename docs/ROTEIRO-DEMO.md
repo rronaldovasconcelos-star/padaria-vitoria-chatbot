@@ -1,6 +1,11 @@
 # Roteiro da demonstração (6 a 8 minutos)
 
-## Antes de começar
+## Antes de começar (site no ar: https://padaria-vitoria.onrender.com)
+
+**Uns 30 minutos antes da aula:** dê dois cliques em **`Manter site no ar.bat`** (na pasta do projeto) e deixe a janela aberta até o fim da apresentação. Ela acorda o site e não deixa ele dormir; enquanto ela estiver aberta, os pedidos também não somem. Na janela deve aparecer "✅ site no ar".
+
+Para apresentar pelo site, use os endereços /chat, /painel e /processo dele no lugar de localhost. Para apresentar no seu computador, siga os passos abaixo.
+
 
 1. Abra um terminal na pasta do projeto e rode `npm start`.
 2. No navegador, abra `http://localhost:3000` e, a partir dele, abra três abas:
