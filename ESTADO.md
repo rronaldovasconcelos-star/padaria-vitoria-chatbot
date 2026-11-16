@@ -20,7 +20,7 @@ Trabalho da PUC: chatbot de encomendas de uma padaria que segue o processo **TO-
 
 - Stack: Node 24 + Express + `node:sqlite` + SSE + HTML/CSS/JS puro, sem build. A fonte Poppins e os ícones Lucide ficam no próprio projeto (`public/fonts`, `public/js/icones.js`) para funcionar offline.
 - Sem IA: menus e botões, tudo determinístico. As regras vivem em `src/motor/`; o bot só coleta os dados.
-- Visual igual ao do sistema de gestão do Trabalho Interdisciplinar (prints enviados em 16/11): vermelho `#a32323`, verde `#38a169`, laranja `#dd6b20`, azul `#3182ce`, roxo `#805ad5`, verde-água `#319795`, âmbar `#f59e0b`, fundo `#f8fafc`, Poppins. Logo redesenhada em SVG (`public/img/logo.svg`) a partir da logo oficial; trocar pelo arquivo original quando houver.
+- Visual igual ao do sistema de gestão do Trabalho Interdisciplinar (prints enviados em 16/11): vermelho `#a32323`, verde `#38a169`, laranja `#dd6b20`, azul `#3182ce`, roxo `#805ad5`, verde-água `#319795`, âmbar `#f59e0b`, fundo `#f8fafc`, Poppins. Logo oficial vetorizada em SVG (`public/img/logo.svg` e `icone.svg`, geradas com VTracer + SVGO); a imagem original fica em `docs/logo-original.jpg`.
 - O PIX é simulado e a gestão valida o comprovante manualmente, como no TO-BE. Escola e empresa são faturadas, sem sinal.
 - O saldo do avulso é recebido no balcão pela Expedição ("Receber o saldo e entregar"), conforme a raia Cliente "Pagar saldo final e retirar pedido".
 - Modo demonstração: "Reiniciar demonstração" deixa o prazo do sinal em 2 min; o padrão é 30 min.
