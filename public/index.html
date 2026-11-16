@@ -7,42 +7,48 @@
   <link rel="icon" href="/img/icone.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/css/base.css">
   <style>
-    body { min-height: 100dvh; display: grid; grid-template-columns: minmax(260px, 42%) 1fr; }
-    .faixa { display: grid; align-content: end; padding: 40px; color: var(--branco); }
-    .letreiro { background: var(--anil); padding: 28px 30px 30px; border-radius: var(--r-gde); box-shadow: 0 0 0 6px var(--branco); max-width: 440px; }
-    .letreiro h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
-    .letreiro p { margin-top: 10px; opacity: .9; max-width: 34ch; }
-    main { display: grid; align-content: center; gap: 28px; padding: 48px clamp(20px, 6vw, 80px); }
-    main > p { color: var(--cinza); max-width: 56ch; }
-    .entradas { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; max-width: 560px; }
+    body { min-height: 100dvh; display: grid; grid-template-columns: minmax(280px, 40%) 1fr; }
+    .faixa { display: grid; align-content: center; justify-items: start; gap: 22px; padding: 48px clamp(24px, 5vw, 64px); background: var(--primaria); color: var(--branco); }
+    .faixa img { width: 132px; height: 132px; border-radius: 50%; background: var(--branco); box-shadow: 0 0 0 6px rgba(255, 255, 255, .18); }
+    .faixa h1 { color: var(--branco); font-size: clamp(2rem, 4vw, 2.8rem); }
+    .faixa p { max-width: 36ch; opacity: .92; font-size: .95rem; }
+    main { display: grid; align-content: center; gap: 24px; padding: 48px clamp(20px, 6vw, 80px); }
+    main > p { color: var(--cinza); max-width: 58ch; }
+    .entradas { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; max-width: 580px; }
     .entradas a {
-      display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; align-items: center;
-      padding: 18px 22px; background: var(--branco); border: 1.5px solid var(--linha); border-radius: var(--r-med);
-      color: var(--tinta); text-decoration: none;
+      display: grid; grid-template-columns: auto 1fr auto; gap: 2px 14px; align-items: center;
+      padding: 18px 20px; background: var(--branco); border: 1px solid var(--linha); border-radius: var(--r-med);
+      color: var(--texto); text-decoration: none;
     }
-    .entradas a:hover { border-color: var(--anil); box-shadow: inset 5px 0 0 var(--casca); }
-    .entradas strong { font-family: var(--fonte-letreiro); font-weight: 400; font-size: 1.4rem; color: var(--anil-escuro); }
-    .entradas span { grid-column: 1; color: var(--cinza); font-size: .95rem; }
-    .entradas em { grid-row: 1 / span 2; grid-column: 2; font-style: normal; font-weight: 700; color: var(--anil); }
-    .rodape { color: var(--cinza); font-size: .85rem; }
-    @media (max-width: 760px) { body { grid-template-columns: 1fr; } .faixa { min-height: 220px; padding: 24px 16px; } main { padding: 32px 16px; } }
+    .entradas a:hover { border-color: var(--primaria); }
+    .entradas .caixa { grid-row: span 2; width: 40px; height: 40px; display: grid; place-items: center; border-radius: var(--r-peq); background: var(--primaria-clara); color: var(--primaria); }
+    .entradas strong { font-size: 1rem; color: var(--tinta); }
+    .entradas span.d { grid-column: 2; color: var(--cinza); font-size: .82rem; }
+    .entradas em { grid-row: 1 / span 2; grid-column: 3; font-style: normal; font-weight: 600; font-size: .85rem; color: var(--primaria); }
+    .rodape { color: var(--cinza); font-size: .78rem; }
+    @media (max-width: 760px) { body { grid-template-columns: 1fr; } .faixa { padding: 32px 16px; } .faixa img { width: 96px; height: 96px; } main { padding: 32px 16px; } }
   </style>
 </head>
 <body>
-  <section class="faixa azulejo">
-    <div class="letreiro">
-      <h1>Padaria Vitória</h1>
-      <p>Encomendas de pães, bolos, doces e salgados pelo chat, do pedido até a entrega.</p>
-    </div>
+  <section class="faixa">
+    <img src="/img/logo.svg" alt="Logo da Padaria Vitória">
+    <h1>Padaria Vitória</h1>
+    <p>Encomendas de pães, bolos, doces e salgados pelo chat, do pedido até a entrega.</p>
   </section>
   <main>
     <p>Este sistema implementa o processo TO-BE de produção dos pedidos. Abra o chat e o painel em janelas lado a lado para acompanhar um pedido passando por todas as etapas.</p>
     <ul class="entradas">
-      <li><a href="/chat" target="_blank" rel="noopener"><strong>Chat do cliente</strong><span>Fazer uma encomenda pelo catálogo, pagar o sinal e acompanhar o pedido.</span><em>Abrir</em></a></li>
-      <li><a href="/painel#gestao" target="_blank" rel="noopener"><strong>Painel da equipe</strong><span>Gestão, padeiro, confeiteiro, salgadeira e conferência.</span><em>Abrir</em></a></li>
-      <li><a href="/processo" target="_blank" rel="noopener"><strong>Processo no diagrama</strong><span>O diagrama TO-BE com os passos de cada pedido destacados.</span><em>Abrir</em></a></li>
+      <li><a href="/chat" target="_blank" rel="noopener"><span class="caixa" id="i-chat"></span><strong>Chat do cliente</strong><span class="d">Fazer uma encomenda pelo catálogo, pagar o sinal e acompanhar o pedido.</span><em>Abrir</em></a></li>
+      <li><a href="/painel#dashboard" target="_blank" rel="noopener"><span class="caixa" id="i-painel"></span><strong>Gestão &amp; Pedidos</strong><span class="d">Dashboard, produção por setor, balcão, financeiro, produtos e relatórios.</span><em>Abrir</em></a></li>
+      <li><a href="/processo" target="_blank" rel="noopener"><span class="caixa" id="i-processo"></span><strong>Processo no diagrama</strong><span class="d">O diagrama TO-BE com os passos de cada pedido destacados.</span><em>Abrir</em></a></li>
     </ul>
     <p class="rodape">Projeto acadêmico da PUC. Os dados e os pagamentos são simulados.</p>
   </main>
+  <script type="module">
+    import { icone } from '/js/icones.js';
+    document.querySelector('#i-chat').innerHTML = icone('cesta', 20);
+    document.querySelector('#i-painel').innerHTML = icone('dashboard', 20);
+    document.querySelector('#i-processo').innerHTML = icone('processo', 20);
+  </script>
 </body>
 </html>

@@ -7,27 +7,27 @@
   <link rel="icon" href="/img/icone.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/css/base.css">
   <style>
-    body { background: #f3f5fa; }
-    .barra { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 10px 24px; background: var(--branco); border-bottom: 1px solid var(--linha); }
-    .barra label { display: flex; align-items: center; gap: 8px; margin-left: auto; font-weight: 700; color: var(--cinza); }
+    body { background: var(--fundo); }
+    .barra { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; min-height: 52px; padding: 8px 20px; background: var(--branco); border-bottom: 1px solid var(--linha); }
+    .barra label { display: flex; align-items: center; gap: 8px; margin-left: auto; font-weight: 600; font-size: .82rem; color: var(--cinza); }
     .barra select { min-width: 260px; }
     .palco { display: grid; grid-template-columns: 1fr 340px; gap: 0; height: calc(100dvh - 61px); }
     .diagrama { overflow: auto; padding: 16px; }
     .quadro { position: relative; width: max(100%, 1500px); background: var(--branco); border-radius: var(--r-med); box-shadow: var(--sombra); }
     .quadro img { display: block; width: 100%; height: auto; }
     .quadro svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-    .feito { fill: rgba(46, 125, 79, .16); stroke: var(--ok); stroke-width: 3; }
-    .atual { fill: rgba(185, 119, 31, .22); stroke: var(--casca); stroke-width: 5; animation: pulsa 1.4s ease-in-out infinite; }
+    .feito { fill: rgba(56, 161, 105, .16); stroke: var(--ok); stroke-width: 3; }
+    .atual { fill: rgba(163, 35, 35, .18); stroke: var(--primaria); stroke-width: 5; animation: pulsa 1.4s ease-in-out infinite; }
     @keyframes pulsa { 50% { stroke-width: 9; } }
     .lateral { background: var(--branco); border-left: 1px solid var(--linha); overflow-y: auto; padding: 20px; }
-    .lateral h1 { font-size: 1.5rem; color: var(--anil-escuro); }
+    .lateral h1 { font-size: 1.2rem; }
     .lateral .sub { color: var(--cinza); font-size: .9rem; margin: 4px 0 16px; }
     .legenda { display: flex; gap: 14px; font-size: .85rem; color: var(--cinza); margin-bottom: 14px; }
     .legenda i { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: -2px; margin-right: 4px; }
-    .passos { list-style: none; margin: 0; padding: 0 0 0 14px; border-left: 2px solid var(--azulejo); display: grid; gap: 10px; font-size: .9rem; }
+    .passos { list-style: none; margin: 0; padding: 0 0 0 14px; border-left: 2px solid var(--linha); display: grid; gap: 10px; font-size: .82rem; }
     .passos li { position: relative; cursor: pointer; }
     .passos li::before { content: ''; position: absolute; left: -20px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--ok); }
-    .passos li:first-child::before { background: var(--casca); box-shadow: 0 0 0 4px var(--casca-clara); }
+    .passos li:first-child::before { background: var(--primaria); box-shadow: 0 0 0 4px var(--primaria-clara); }
     .passos .raia { color: var(--cinza); font-size: .78rem; }
     .vazio { color: var(--cinza); padding: 16px; border: 2px dashed var(--linha); border-radius: var(--r-med); }
     @media (max-width: 900px) { .palco { grid-template-columns: 1fr; height: auto; } .lateral { border-left: 0; } .barra label { margin-left: 0; } .barra select { min-width: 0; width: 100%; } }
@@ -36,7 +36,7 @@
 </head>
 <body>
   <header class="barra">
-    <a class="marca" href="/"><span class="marca-selo" aria-hidden="true"></span><span class="marca-nome">Padaria Vitória</span></a>
+    <a class="marca" href="/"><span class="marca-selo" aria-hidden="true"></span><span><span class="marca-nome">Padaria Vitória</span><span class="marca-sub">Processo TO-BE</span></span></a>
     <label>Pedido <select id="pedido"><option value="">Escolha um pedido</option></select></label>
   </header>
   <div class="palco">
@@ -49,7 +49,7 @@
     <aside class="lateral">
       <h1 id="tituloPedido">Processo TO-BE</h1>
       <p class="sub" id="subPedido">Escolha um pedido para ver, no diagrama, por onde ele já passou.</p>
-      <div class="legenda"><span><i style="background:rgba(46,125,79,.3);border:2px solid var(--ok)"></i>Já executado</span><span><i style="background:rgba(185,119,31,.3);border:2px solid var(--casca)"></i>Passo atual</span></div>
+      <div class="legenda"><span><i style="background:rgba(56,161,105,.25);border:2px solid var(--ok)"></i>Já executado</span><span><i style="background:rgba(163,35,35,.2);border:2px solid var(--primaria)"></i>Passo atual</span></div>
       <ol class="passos" id="passos"></ol>
     </aside>
   </div>

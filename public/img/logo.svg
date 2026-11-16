@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="grao" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fde68a"/><stop offset=".55" stop-color="#f6b93b"/><stop offset="1" stop-color="#d98a06"/></linearGradient>
+  </defs>
+  <circle cx="64" cy="64" r="62" fill="#ffffff"/>
+  <circle cx="64" cy="64" r="50" fill="none" stroke="#d4a017" stroke-width="2"/>
+  <g>
+    <ellipse cx="45.4" cy="18.0" rx="7.0" ry="3.6" transform="rotate(-40 45.4 18.0)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="46.6" cy="26.0" rx="7.0" ry="3.6" transform="rotate(24 46.6 26.0)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="54.4" cy="16.8" rx="7.0" ry="3.6" transform="rotate(-40 54.4 16.8)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="55.5" cy="24.7" rx="7.0" ry="3.6" transform="rotate(24 55.5 24.7)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="63.3" cy="15.5" rx="7.0" ry="3.6" transform="rotate(-40 63.3 15.5)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="64.4" cy="23.5" rx="7.0" ry="3.6" transform="rotate(24 64.4 23.5)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="72.2" cy="14.3" rx="7.0" ry="3.6" transform="rotate(-40 72.2 14.3)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="73.3" cy="22.2" rx="7.0" ry="3.6" transform="rotate(24 73.3 22.2)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="81.1" cy="13.0" rx="7.0" ry="3.6" transform="rotate(-40 81.1 13.0)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="82.2" cy="21.0" rx="7.0" ry="3.6" transform="rotate(24 82.2 21.0)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="90.0" cy="11.8" rx="7.0" ry="3.6" transform="rotate(-40 90.0 11.8)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="91.1" cy="19.7" rx="7.0" ry="3.6" transform="rotate(24 91.1 19.7)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="98.9" cy="10.5" rx="7.0" ry="3.6" transform="rotate(-40 98.9 10.5)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="100.0" cy="18.4" rx="7.0" ry="3.6" transform="rotate(24 100.0 18.4)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="110.4" cy="13.0" rx="6.0" ry="3.4" transform="rotate(-8 110.4 13.0)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+  </g>
+  <g>
+    <ellipse cx="26.6" cy="96.0" rx="7.0" ry="3.6" transform="rotate(-24 26.6 96.0)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="25.4" cy="104.0" rx="7.0" ry="3.6" transform="rotate(40 25.4 104.0)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="35.5" cy="97.3" rx="7.0" ry="3.6" transform="rotate(-24 35.5 97.3)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="34.4" cy="105.2" rx="7.0" ry="3.6" transform="rotate(40 34.4 105.2)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="44.4" cy="98.5" rx="7.0" ry="3.6" transform="rotate(-24 44.4 98.5)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="43.3" cy="106.5" rx="7.0" ry="3.6" transform="rotate(40 43.3 106.5)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="53.3" cy="99.8" rx="7.0" ry="3.6" transform="rotate(-24 53.3 99.8)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="52.2" cy="107.7" rx="7.0" ry="3.6" transform="rotate(40 52.2 107.7)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="62.2" cy="101.0" rx="7.0" ry="3.6" transform="rotate(-24 62.2 101.0)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="61.1" cy="109.0" rx="7.0" ry="3.6" transform="rotate(40 61.1 109.0)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="71.1" cy="102.3" rx="7.0" ry="3.6" transform="rotate(-24 71.1 102.3)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="70.0" cy="110.2" rx="7.0" ry="3.6" transform="rotate(40 70.0 110.2)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="80.0" cy="103.6" rx="7.0" ry="3.6" transform="rotate(-24 80.0 103.6)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="78.9" cy="111.5" rx="7.0" ry="3.6" transform="rotate(40 78.9 111.5)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+    <ellipse cx="90.4" cy="109.0" rx="6.0" ry="3.4" transform="rotate(8 90.4 109.0)" fill="url(#grao)" stroke="#b7791f" stroke-width=".6"/>
+  </g>
+  <text x="64" y="63" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-weight="700" font-size="25" fill="#0b2a99" letter-spacing="-.5">Padaria</text>
+  <text x="64" y="86" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" font-weight="700" font-size="25" fill="#e3141b" letter-spacing="-.5">Vitória</text>
+</svg>

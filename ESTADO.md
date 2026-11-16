@@ -1,6 +1,6 @@
 # ESTADO: Padaria Vitória (chatbot TO-BE, PUC)
 
-_Atualizado em 12/11/2026_
+_Atualizado em 16/11/2026_
 
 ## O que é
 
@@ -11,16 +11,16 @@ Trabalho da PUC: chatbot de encomendas de uma padaria que segue o processo **TO-
 **Pronto para apresentar e NO AR: https://padaria-vitoria.onrender.com** (Render grátis, desde 12/11/2026).
 
 - Chat web (`/chat`) por botões, com catálogo, PIX do sinal e do saldo (QR BR Code offline) e acompanhamento.
-- Painel (`/painel`) com Gestão (comprovantes com prazo, quadro, relatórios com CSV/PDF, fechamento do dia, cadastros), Padeiro, Confeiteiro, Salgadeira e Conferência (checklist, item pendente, pesagem, liberação).
+- Painel "Gestão & Pedidos" (`/painel`), com menu lateral igual ao sistema de gestão do Trabalho Interdisciplinar: Dashboard, Pedidos (quadro), Produção (Geral/Padaria/Salgados/Confeitaria, colunas por dia), Balcão (fila de montagem, conferência, pesagem com +100g/+500g/+1kg, cobrar e liberar), Financeiro (aprovações PIX, saldos, a faturar, CSV, fechamento do dia), Produtos (preços, catálogo, sazonalidade) e Relatórios (períodos, gráficos, CSV/PDF). Os endereços antigos (`#gestao`, `#paes`, `#conferencia`...) continuam funcionando.
 - Processo (`/processo`): o PNG do TO-BE com os passos de cada pedido destacados (coordenadas em `src/motor/atividades.js`).
 - 23 testes verdes (`npm test`) e teste de mutação feito: 6 guardas desligadas uma por vez, todas ficaram vermelhas.
 - Documentação: `docs/PROPOSTA.md`, `.docx` e `.pdf`, `docs/ROTEIRO-DEMO.md` e prints em `docs/prints/`.
 
 ## Decisões
 
-- Stack: Node 24 + Express + `node:sqlite` + SSE + HTML/CSS/JS puro, sem build. As fontes (Young Serif e Atkinson Hyperlegible) ficam em `public/fonts` para funcionar offline.
+- Stack: Node 24 + Express + `node:sqlite` + SSE + HTML/CSS/JS puro, sem build. A fonte Poppins e os ícones Lucide ficam no próprio projeto (`public/fonts`, `public/js/icones.js`) para funcionar offline.
 - Sem IA: menus e botões, tudo determinístico. As regras vivem em `src/motor/`; o bot só coleta os dados.
-- Visual "azulejo de padaria" (anil `#22408c` + casca `#b9771f`).
+- Visual igual ao do sistema de gestão do Trabalho Interdisciplinar (prints enviados em 16/11): vermelho `#a32323`, verde `#38a169`, laranja `#dd6b20`, azul `#3182ce`, roxo `#805ad5`, verde-água `#319795`, âmbar `#f59e0b`, fundo `#f8fafc`, Poppins. Logo redesenhada em SVG (`public/img/logo.svg`) a partir da logo oficial; trocar pelo arquivo original quando houver.
 - O PIX é simulado e a gestão valida o comprovante manualmente, como no TO-BE. Escola e empresa são faturadas, sem sinal.
 - O saldo do avulso é recebido no balcão pela Expedição ("Receber o saldo e entregar"), conforme a raia Cliente "Pagar saldo final e retirar pedido".
 - Modo demonstração: "Reiniciar demonstração" deixa o prazo do sinal em 2 min; o padrão é 30 min.
@@ -29,6 +29,7 @@ Trabalho da PUC: chatbot de encomendas de uma padaria que segue o processo **TO-
 ## Pendências
 
 - O Ronaldo precisa conferir a proposta e o roteiro e ensaiar a demonstração.
+- Os prints de `docs/prints/` e da proposta (.docx/.pdf) ainda mostram o visual antigo (azul).
 - Opcional: login por perfil no painel; conferência lembrar os itens já marcados quando um pendente volta.
 
 ## Hospedagem

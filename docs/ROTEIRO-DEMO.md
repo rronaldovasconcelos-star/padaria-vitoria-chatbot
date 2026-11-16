@@ -11,7 +11,7 @@ Para apresentar pelo site, use os endereços /chat, /painel e /processo dele no 
 
 1. Abra um terminal na pasta do projeto e rode `npm start`.
 2. No navegador, abra `http://localhost:3000` e, a partir dele, abra três abas:
-   **Chat do cliente**, **Painel da equipe** e **Processo no diagrama**.
+   **Chat do cliente**, **Gestão & Pedidos** e **Processo no diagrama**.
    Se der, coloque o chat e o painel lado a lado.
 3. No painel, clique em **Reiniciar demonstração**. Isso apaga os pedidos e deixa o prazo do sinal em **2 minutos**.
 4. No chat, clique em **Nova conversa**.
@@ -26,13 +26,13 @@ Para apresentar pelo site, use os endereços /chat, /painel e /processo dele no 
 | 2 | Chat | Abrir o catálogo: 20 pães franceses, 1 bolo de chocolate, 25 brigadeiros → Usar estes itens | Catálogo web |
 | 3 | Chat | Escolher uma data e um horário → **Confirmar pedido** | Confirma o pedido; o sistema classifica, valida e aplica a sazonalidade |
 | 4 | Chat | Mostrar o PIX de 50% e o tempo correndo → **Usar comprovante de exemplo** | Cobrança do sinal; paga e envia o comprovante |
-| 5 | Painel › Gestão | O comprovante chega sozinho → **Validar pagamento** | Notifica a gestão; confere e valida; libera o pedido |
-| 6 | Painel › Padeiro e Confeiteiro | Começar a produzir → Marcar como pronto em cada setor | Fila por setor e ordem de saída; "todos prontos" |
-| 7 | Painel › Conferência | Deixar o brigadeiro **sem marcar** → Concluir conferência | Completo? Não: o item volta como **pendente** |
-| 8 | Painel › Confeiteiro | A comanda volta com a etiqueta vermelha → produzir | Produzir item pendente |
-| 9 | Painel › Conferência | Marcar tudo → digitar os pesos em kg (ex.: 1.08, 1.62 e 0.5) → Lançar pesos | Pesa e lança o peso; calcula o valor pelo peso |
+| 5 | Painel › Financeiro | O sino acende e o comprovante chega sozinho → **Aprovar** | Notifica a gestão; confere e valida; libera o pedido |
+| 6 | Painel › Produção (Geral, Padaria, Confeitaria) | Iniciar preparo → Marcar como pronto em cada comanda | Fila por setor e ordem de saída; "todos prontos" |
+| 7 | Painel › Balcão | Deixar o brigadeiro **sem marcar** → Devolver à produção | Completo? Não: o item volta como **pendente** |
+| 8 | Painel › Produção › Confeitaria | A comanda volta com a etiqueta "Item pendente da conferência" → produzir | Produzir item pendente |
+| 9 | Painel › Balcão | Marcar tudo → Concluir conferência → pesar cada item (digitando ou com +100g/+500g/+1kg) → Lançar pesos | Pesa e lança o peso; calcula o valor pelo peso |
 | 10 | Chat | O PIX do **saldo** aparece (valor final − sinal) | Pedido avulso? Sim: cobrança do saldo |
-| 11 | Painel › Conferência | Receber o saldo e entregar | Paga o saldo e retira o pedido |
+| 11 | Painel › Balcão | **Cobrar e liberar** | Paga o saldo e retira o pedido |
 | 12 | Processo | Escolher o pedido | O caminho todo pintado no diagrama |
 
 ## Cena 2: escola sem sinal (1 min)
@@ -53,4 +53,4 @@ Faça um pedido avulso e **não envie** o comprovante. Depois de 2 minutos, o ch
 
 ## Fechamento (30 s)
 
-Painel › Gestão › **Relatórios**: mostre o recebido (sinais e saldos), o valor a faturar das escolas e empresas, a produção por produto e as ocorrências. Clique em **Exportar CSV** e depois em **Fechar o dia**, que encerra os pedidos entregues.
+Painel › **Relatórios**: escolha o período, mostre o faturamento por setor, a distribuição de status, o caixa (sinais, saldos e a faturar), a produção por produto e as ocorrências. Clique em **Exportar (.csv)**. Depois, em Painel › **Financeiro**, clique em **Fechar o dia**, que encerra os pedidos entregues.
