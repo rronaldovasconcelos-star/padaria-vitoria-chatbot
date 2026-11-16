@@ -141,8 +141,8 @@
 .cartao b { color: var(--tinta); font-weight: 600; }
 
 /* ---------- Produção: colunas por dia */
-.dias { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(205px, 1fr); gap: 12px; align-items: start; overflow-x: auto; padding-bottom: 6px; }
-.dia { display: grid; gap: 10px; }
+.dias { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(185px, 1fr); gap: 12px; align-items: start; overflow-x: auto; padding-bottom: 6px; }
+.dia { display: grid; gap: 10px; min-width: 0; }
 .dia-topo { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: var(--branco); border: 1px solid var(--linha); border-radius: var(--r-peq); font-size: .8rem; font-weight: 600; color: var(--tinta); }
 .dia-topo small { color: var(--cinza); font-weight: 500; margin-left: 4px; }
 .dia .vazio { padding: 22px 10px; }
@@ -156,7 +156,7 @@
 .etiqueta.atraso { background: var(--primaria-clara); color: var(--primaria); }
 .etiqueta.pendente { background: var(--amarelo-claro); color: var(--amarelo-texto); }
 .etiqueta.fazendo { background: #feebc8; color: #9c4221; }
-.ticket .btn { margin-top: 12px; width: 100%; min-height: 38px; }
+.ticket .btn { margin-top: 12px; width: 100%; min-height: 38px; white-space: normal; padding-inline: .6em; }
 
 /* ---------- Balcão */
 .balcao { display: grid; grid-template-columns: 255px minmax(0, 1fr); gap: 20px; align-items: start; }

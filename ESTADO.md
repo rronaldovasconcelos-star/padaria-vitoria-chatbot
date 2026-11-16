@@ -14,7 +14,7 @@ Trabalho da PUC: chatbot de encomendas de uma padaria que segue o processo **TO-
 - Painel "Gestão & Pedidos" (`/painel`), com menu lateral igual ao sistema de gestão do Trabalho Interdisciplinar: Dashboard, Pedidos (quadro), Produção (Geral/Padaria/Salgados/Confeitaria, colunas por dia), Balcão (fila de montagem, conferência, pesagem com +100g/+500g/+1kg, cobrar e liberar), Financeiro (aprovações PIX, saldos, a faturar, CSV, fechamento do dia), Produtos (preços, catálogo, sazonalidade) e Relatórios (períodos, gráficos, CSV/PDF). Os endereços antigos (`#gestao`, `#paes`, `#conferencia`...) continuam funcionando.
 - Processo (`/processo`): o PNG do TO-BE com os passos de cada pedido destacados (coordenadas em `src/motor/atividades.js`).
 - 23 testes verdes (`npm test`) e teste de mutação feito: 6 guardas desligadas uma por vez, todas ficaram vermelhas.
-- Documentação: `docs/PROPOSTA.md`, `.docx` e `.pdf`, `docs/ROTEIRO-DEMO.md` e prints em `docs/prints/`.
+- Documentação: `docs/PROPOSTA.md`, `.docx` e `.pdf`, `docs/ROTEIRO-DEMO.md` e prints em `docs/prints/` (refeitos com o layout novo em 16/11; o PDF foi gerado pelo LibreOffice a partir do .docx).
 
 ## Decisões
 
@@ -29,7 +29,6 @@ Trabalho da PUC: chatbot de encomendas de uma padaria que segue o processo **TO-
 ## Pendências
 
 - O Ronaldo precisa conferir a proposta e o roteiro e ensaiar a demonstração.
-- Os prints de `docs/prints/` e da proposta (.docx/.pdf) ainda mostram o visual antigo (azul).
 - Opcional: login por perfil no painel; conferência lembrar os itens já marcados quando um pendente volta.
 
 ## Hospedagem

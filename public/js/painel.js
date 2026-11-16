@@ -269,7 +269,7 @@ function ticketHTML(t) {
     ${raw(etiqueta)}
     ${raw(t.status === 'aguardando'
     ? html`<button class="btn btn-ambar" type="button" data-tarefa="${t.id}" data-status="produzindo">${raw(icone('producao', 15))} Iniciar preparo</button>`
-    : html`<button class="btn btn-ok" type="button" data-tarefa="${t.id}" data-status="pronto">${raw(icone('ok', 15))} Marcar como pronto</button>`)}
+    : html`<button class="btn btn-ok" type="button" data-tarefa="${t.id}" data-status="pronto">${raw(icone('ok', 15))} Concluir preparo</button>`)}
   </article>`;
 }
 

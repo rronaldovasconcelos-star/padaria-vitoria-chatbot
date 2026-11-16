@@ -42,17 +42,17 @@ Toda atividade do TO-BE tem um identificador no código (`src/motor/atividades.j
 | Cliente | Paga 50% do sinal e envia comprovante | Envio da imagem pelo chat |
 | Sistema | Comprovante recebido → Aguardando confirmação e notifica a Gestão | O comprovante aparece em tempo real no painel da gestão |
 | Sistema | Prazo de validação expirado | Relógio de 30 minutos (2 no modo demonstração); ao vencer, cancela sozinho |
-| Gestão | Confere comprovante e clica em Validar pagamento | Botões "Validar pagamento" e "Recusar" |
+| Gestão | Confere comprovante e clica em Aprovar | Tela Financeiro: comprovante ao lado dos botões "Aprovar" e "Rejeitar" |
 | Sistema | Cancela o pedido e avisa o cliente | Pagamento recusado ou prazo vencido: o pedido fica **Cancelado** e o aviso chega no chat |
 | Sistema | Altera status e libera pedido | O pedido fica **Liberado** e o sinal entra no caixa |
 | Sistema | Desmembra a comanda e libera tarefas | Uma tarefa por item, no setor do produto |
 | Sistema | Ordena a fila pelo horário de saída do motorista | A fila de cada setor segue data e horário de saída; item devolvido pela conferência passa na frente quando empata |
-| Produção | Padeiro / Confeiteiro / Salgadeira veem sua cota | Uma tela por setor, com comandas numeradas na ordem |
+| Produção | Padeiro / Confeiteiro / Salgadeira veem sua cota | Tela Produção com filtro por setor e comandas na ordem de saída |
 | Produção | Produz e marca Produzindo → Pronto | Não é possível pular etapa nem voltar |
 | Produção | Todos prontos | O pedido só vai para a conferência quando **todos** os setores terminam |
 | Conferência | Confere itens com o pedido | Lista de verificação item a item |
 | Conferência | Completo? Não → Produzir item pendente | O item faltante volta para a fila do setor marcado como pendente |
-| Conferência | Pesa itens e lança o peso | Campo de peso por item, com o valor calculado na hora |
+| Conferência | Pesa itens e lança o peso | Balcão: peso por item (com +100g, +500g e +1kg) e valor calculado na hora |
 | Sistema | Calcula valor pelo peso | Produto a quilo: peso × preço; produto por unidade: quantidade × preço |
 | Sistema | Pedido avulso? Sim → Envia cobrança do saldo | Saldo = valor final − sinal, com novo PIX no chat |
 | Cliente | Pagar saldo final e retirar pedido | A expedição recebe o saldo no balcão e entrega |
@@ -96,15 +96,15 @@ test/           testes automáticos
 
 ![Chat com a cobrança do sinal](prints/01-chat-pix.jpg)
 
-**Gestão.** Fila de comprovantes com o prazo correndo, quadro dos pedidos por situação, relatórios e cadastro de produtos e prazos.
+**Gestão & Pedidos.** Menu lateral com dashboard do dia, quadro dos pedidos, financeiro (aprovação do PIX com o prazo correndo, saldos e valores a faturar), produtos e relatórios com gráficos.
 
 ![Painel da gestão](prints/02-gestao.jpg)
 
-**Produção.** Uma tela por setor; cada item é uma comanda numerada na ordem de saída do motorista.
+**Produção.** Filtro por setor (padaria, confeitaria e salgados) e uma coluna por dia de entrega; cada item é uma comanda na ordem de saída do motorista, com aviso de atraso.
 
 ![Fila da salgadeira](prints/03-producao-salgadeira.jpg)
 
-**Conferência e expedição.** Lista de verificação, pesagem com valor calculado na hora e liberação da mercadoria.
+**Balcão (conferência e expedição).** Fila de montagem, lista de verificação, pesagem com barra de progresso e valor calculado na hora, cobrança do saldo e liberação da mercadoria.
 
 ![Conferência](prints/04-conferencia.jpg)
 

@@ -27,7 +27,7 @@ Para apresentar pelo site, use os endereços /chat, /painel e /processo dele no 
 | 3 | Chat | Escolher uma data e um horário → **Confirmar pedido** | Confirma o pedido; o sistema classifica, valida e aplica a sazonalidade |
 | 4 | Chat | Mostrar o PIX de 50% e o tempo correndo → **Usar comprovante de exemplo** | Cobrança do sinal; paga e envia o comprovante |
 | 5 | Painel › Financeiro | O sino acende e o comprovante chega sozinho → **Aprovar** | Notifica a gestão; confere e valida; libera o pedido |
-| 6 | Painel › Produção (Geral, Padaria, Confeitaria) | Iniciar preparo → Marcar como pronto em cada comanda | Fila por setor e ordem de saída; "todos prontos" |
+| 6 | Painel › Produção (Geral, Padaria, Confeitaria) | Iniciar preparo → Concluir preparo em cada comanda | Fila por setor e ordem de saída; "todos prontos" |
 | 7 | Painel › Balcão | Deixar o brigadeiro **sem marcar** → Devolver à produção | Completo? Não: o item volta como **pendente** |
 | 8 | Painel › Produção › Confeitaria | A comanda volta com a etiqueta "Item pendente da conferência" → produzir | Produzir item pendente |
 | 9 | Painel › Balcão | Marcar tudo → Concluir conferência → pesar cada item (digitando ou com +100g/+500g/+1kg) → Lançar pesos | Pesa e lança o peso; calcula o valor pelo peso |
